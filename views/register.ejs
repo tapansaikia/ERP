@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script> -->
+        <!-- <style type="text/css">
+          meter {
+            /* Reset the default appearance */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        
+            margin: 0 auto 1em;
+            width: 100%;
+            height: 0.5em;
+        
+            /* Applicable only to Firefox */
+            background: none;
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+        
+          meter::-webkit-meter-bar {
+            background: none;
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+          meter[value="1"]::-webkit-meter-optimum-value { background: red; }
+          meter[value="2"]::-webkit-meter-optimum-value { background: yellow; }
+          meter[value="3"]::-webkit-meter-optimum-value { background: orange; }
+          meter[value="4"]::-webkit-meter-optimum-value { background: green; }
+        
+          /* Gecko based browsers */
+          meter[value="1"]::-moz-meter-bar { background: red; }
+          meter[value="2"]::-moz-meter-bar { background: yellow; }
+          meter[value="3"]::-moz-meter-bar { background: orange; }
+          meter[value="4"]::-moz-meter-bar { background: green; }
+        </style> -->
+    </head>
+   
+<body>
+    <div class="row mt-5">
+        <div class="col-md-6 m-auto">
+          <div class="card card-body">
+            <h1 class="text-center mb-3">
+              <i class="fas fa-user-plus"></i> Register
+            </h1>
+            <% include ./partials/messages %>
+            <form action="/users/register" method="POST">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="name"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  placeholder="Enter Name"
+                  value="<%= typeof name != 'undefined' ? name : '' %>"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="Enter Email"
+                  value="<%= typeof email != 'undefined' ? email : '' %>"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">password</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="form-control"
+                  placeholder="Create Password"
+                  value="<%= typeof password != 'undefined' ? password : '' %>"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <input
+                  type="password"
+                  id="password2"
+                  name="password2"
+                  class="form-control"
+                  placeholder="Confirm Password"
+                  value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+                />
+              </div>
+
+              <!-- <meter max="4" id="password-strength-meter"></meter>
+                <p id="password-strength-text"></p> -->
+                
+              <button type="submit" class="btn btn-primary btn-block">
+                Register
+              </button>
+            </form>
+            <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+          </div>
+        </div>
+      </div>
+      
+</body>
+<!-- <script type="text/javascript">
+	var strength = {
+		0: "Worst",
+		1: "Bad",
+		2: "Weak",
+		3: "Good",
+		4: "Strong"
+	}
+	var password = document.getElementById('password');
+	var meter = document.getElementById('password-strength-meter');
+	var text = document.getElementById('password-strength-text');
+
+	password.addEventListener('input', function() {
+		var val = password.value;
+		var result = zxcvbn(val);
+
+  // Update the password strength meter
+  meter.value = result.score;
+
+  // Update the text indicator
+  if (val !== "") {
+  	text.innerHTML = "Strength: " + strength[result.score]; 
+  } else {
+  	text.innerHTML = "";
+  }
+});
+</script> -->
+
+</html>
+

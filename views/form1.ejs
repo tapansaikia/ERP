@@ -1,0 +1,488 @@
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="/css/styles/form.css"> -->
+    <style>
+            body{
+                text-align: left;
+            }
+            input[type=number]::-webkit-inner-spin-button, 
+            input[type=number]::-webkit-outer-spin-button { 
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                margin: 0; 
+            }
+         table{
+                                    border-collapse: separate;
+                                border-spacing: 100px 5px;
+                                }
+                                .subhead {
+                                    width: 100%;
+                                    margin-top: 10vh;
+                                    border-radius: 10px;
+                                    padding: 10px;
+                                    color: black;
+                                    font-size: 40px;
+                                    text-align: center;
+                                    background-color: lightsteelblue;
+                                }
+                                .jumbotron{
+                                    background-color: lightsteelblue;
+                                }
+                                .btn
+                                {
+                                    background-color: lightsteelblue;
+                                    color: black;
+                                    border-radius: 5px;
+                                    display: inline;
+                                    font-weight: bold;
+                                }
+                                .box {
+                                    padding-left: 10px;
+                                }
+                        
+                                .border {
+                                    padding-top: 20px;
+                                    padding-left: 30px;
+                                    padding-bottom: 20px;
+                                    background-color: lightsteelblue;
+                                    border-radius: 10px;
+                                }
+                                .footer{
+                                    width: 100%;
+                                    height: 100px;
+                                    background-color: lightsteelblue;
+                                    /* margin-left: 10px;
+                                    margin-right: 10px; */
+                                    border-top-left-radius: 10px;
+                                    border-top-right-radius: 10px;
+                                }
+                                a{
+                                    text-decoration: none;
+                                    color: black;
+                                }
+                                a :hover{
+                                    text-decoration: none;
+                                    color: black;
+                                }
+            </style>
+</head>
+
+<body>
+            <div class="jumbotron" >
+                    <img src="/images/nitbanner.png" alt="NITS" height="180vh" width="1000vh" class="col-lg-12 col-md-12 col-sm-12">
+                </div>
+    
+                <center>
+                   
+                </center>
+                <br><br><br>
+
+        <div class="container col-lg-10 col-md-10 col-sm-10">
+            <form class="col-lg-12" action="/form1" method="POST">
+                <div class="form-row">
+                    <div class="form-group col-lg-10 col-md-10">
+                        <legend> <label for="adv">1. ADVERTISEMENT NO. :</label></legend>
+                        <input type="text" class="form-control" id="adv" name="advNo" required>
+
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <legend> <label for="adv">2. POST APPLIED FOR</label></legend>
+                        <select name="postApplied" id="adv" class="form-control">
+                           <% posts.forEach((post) => { %>
+                                <option><%= post.post %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <legend> <label for="adv">3. DEPARTMENT</label></legend>
+                        <input type="text" class="form-control" id="dpt" name="department" required>
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <legend> 4.TRANSACTION DETAILS</legend>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <label for="trans">
+                            <br> A. Transaction ID</label>
+                        <input type="text" class="form-control" id="trans" name="transactionId" required>
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <label for="bank">B. Bank Name</label>
+                        <input type="text" class="form-control" id="bank" name="bankName" required>
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <label for="branch">C. Branch Name</label>
+                        <input type="text" class="form-control" id="branch" name="branchName" required>
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <label for="ifcode">D. IFSC Code</label>
+                        <input type="text" class="form-control" id="ifcode" name="ifsc" maxlength="11" required>
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <label for="trans">E. Amount</label>
+                        <input type="number" class="form-control" id="trans" name="amount" required>
+                    </div>
+                    <div class="form-group col-lg-10 col-md-10">
+                        <label for="dat">E. Date</label>
+                        <input type="date" class="form-control" id="dat" name="date" required>
+                    </div>
+                </div>
+                <br><br><br>
+                        <div class="form-row">
+                            <legend> 5. PERSONAL DETAILS</legend>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="name">
+                                    <br> A. Name of Applicant</label>
+                                <input type="text" class="form-control" id="name" name="name" value="<%= doc.name %>" readonly required>
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="bank">B.Mother's Name</label>
+                                <input type="text" class="form-control" id="bank" name="motherName" required>
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="branch">C. Father's Name</label>
+                                <input type="text" class="form-control" id="branch" name="fatherName" required>
+                            </div>
+                            <div class="form-row">
+<br><br>
+                                <p>D. Address of Communication</p>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="house"><br> i. House Number</label>
+                                    <input type="text" class="form-control" id="house" name="houseNoResidential" required>
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="street">ii. Street</label>
+                                    <input type="text" class="form-control" id="street" name="streetResidential" required>
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="land">iii. Landmark</label>
+                                    <input type="text" class="form-control" id="land" name="landmarkResidential">
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="city">iv. Village/City</label>
+                                    <input type="text" class="form-control" id="city" name="cityResidential" required>
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="post">v. Post Office</label>
+                                    <input type="text" class="form-control" id="post" name="postResidential" required>
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="police">vi. Police Station</label>
+                                    <input type="text" class="form-control" id="police" name="policeResidential" required>
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="police">vii. District</label>
+                                    <input type="text" class="form-control" id="district" name="districtResidential" required>
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="state">viii. State</label>
+                                    <input type="text" class="form-control" id="state" name="stateResidential" required>
+
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="country">ix. Country</label>
+                                    <input type="text" class="form-control" id="country" name="countryResidential" required>
+                                </div>
+                                <div class="form-group col-lg-10 col-md-10">
+                                    <label for="pin">ix. Pin Code</label>
+                                    <input  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number"  class="form-control" id="pin" name="pincodeResidential" maxlength="6" required>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <h4> <br><br>
+                                E. Permanent Address</h4>
+                             <!-- button for same as above -->
+                             <label for="lifCheck" style="position: relative;left: -16vw;">Same as above</label>
+                           <div id="lifCheck" onclick="myFunction()" style="display: block;
+                           width: 20px;
+                           height: 24px;
+                           z-index: 50;
+                           background-color: #dcd1d1;
+                           position: relative;
+                           left: -27vw;
+                           border-radius: 5px;"></div>
+                        
+                           <!-- <button onclick="myfunction()">Check value</button> -->
+
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="house"><br> i. House Number</label>
+                                <input type="text" class="form-control" id="houseP" name="houseNoPermanent" required>
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="street">ii. Street</label>
+                                <input type="text" class="form-control" id="streetP" name="streetPermanent">
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="land">iii. Landmark</label>
+                                <input type="text" class="form-control" id="landP" name="landmarkPermanent">
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="city">iv. Village/City</label>
+                                <input type="text" class="form-control" id="cityP" name="cityPermanent" required>
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="post">v. Post Office</label>
+                                <input type="text" class="form-control" id="postP" name="postPermanent" required>
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="police">vi. Police Station</label>
+                                <input type="text" class="form-control" id="policeP" name="policePermanent" required>
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="police">vii. District</label>
+                                <input type="text" class="form-control" id="districtP" name="districtPermanent" required>
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="state">viii. State</label>
+                                <input type="text" class="form-control" id="state" name="statePermanent" required>
+
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="country">ix. Country</label>
+                                <input type="text" class="form-control" id="countryP" name="countryPermanent" required>
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="pin">ix. Pin Code</label>
+                                <input  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number"  class="form-control" id="pinP" name="pincodePermanent" maxlength="6" required>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="form-row">
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="email">E. Email</label>
+                                <input type="email" class="form-control" name="email" id="email"  value="<%= doc.email %>" readonly required>
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="mobile">F. Mobile No.</label>
+                                <input type="number" class="form-control" name="mobileNo" id="mobile">
+                            </div>
+                            <fieldset class="form-group col-lg-10 col-md-10">
+                                <div class="row">
+                                    <legend class="col-form-label col-lg-4 col-md-10 col-sm-6">G. Gender</legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="gridRadios1"
+                                                value="male" checked>
+                                            <label class="form-check-label" for="gridRadios1">
+                                                Male
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="gridRadios2"
+                                                value="female">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                Female
+                                            </label>
+                                        </div>
+                                        <div class="form-check disabled">
+                                            <input class="form-check-input" type="radio" name="gender" id="gridRadios3"
+                                                value="others">
+                                            <label class="form-check-label" for="gridRadios3">
+                                                Others
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="dob">H. DOB</label>
+                                <input type="date" class="form-control" name="DOB"  onchange="changeHandler()" id="dob">
+                            </div>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="age">I. Age as on (30/11/2017)</label>
+                                <input type="number" class="form-control" name="age" id="age" readonly>
+                            </div>
+                            <fieldset class="form-group col-lg-10 col-md-10">
+                                <div class="row">
+                                    <legend class="col-form-label col-lg-4 col-md-10 col-sm-6 ">J. Marital Status</legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="maritalStatus" id="gridRadios1"
+                                                value="option1" checked>
+                                            <label class="form-check-label" for="gridRadios1">
+                                                Married
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="maritalStatus" id="gridRadios2"
+                                                value="option2">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                Unmarried
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group col-lg-10 col-md-10">
+                                <div class="row">
+                                    <legend class="col-form-label col-lg-4 col-md-10 col-sm-6 ">K. Category</legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="category" id="gridRadios1"
+                                                value="option1" checked>
+                                            <label class="form-check-label" for="gridRadios1">
+                                                General
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="category" id="gridRadios2"
+                                                value="option2">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                OBC
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="category" id="gridRadios2"
+                                                value="option2">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                SC
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="category" id="gridRadios2"
+                                                value="option2">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                ST
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group col-lg-10 col-md-10">
+                                <div class="row">
+                                    <legend class="col-form-label col-lg-4 col-md-10 col-sm-6 ">L. PWD</legend>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="pwd" id="gridRadios1"
+                                                value="Yes" onclick="if(this.checked){ableFunction()}" checked>
+                                            <label class="form-check-label" for="gridRadios1">
+                                                Yes
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input checked class="form-check-input" type="radio" name="pwd" id="gridRadios2"
+                                                value="No" onclick="if(this.checked){disableFunction()}">
+                                            <label class="form-check-label" for="gridRadios2">
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-group col-lg-10 col-md-10">
+                                <label for="dis">M. % of Disability</label>
+                                <input disabled type="text" class="form-control" name="disability" id="dis">
+                            </div>
+                        </div>
+                        <br>
+
+                        <!-- <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" id="inputZip">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Check me out
+                    </label>
+                </div>
+</div> -->
+                        <br><br>
+                        <div class="container col-lg-2 col-md-4 col-sm-4">
+                                <button type="submit" class="btn">Next</button>
+                            </div>
+                    </form>
+                </div>
+                
+       
+<br><br><br>
+<a href="/users/logout"><button class="btn" style="position: relative;left: 2vw;top: -2vh;">LOGOUT</button></a>
+
+<center>
+    <div class="footer col-lg-12 col-md-12 col-sm-12">
+    </div>
+</center>
+
+<script>
+    function disableFunction(){
+        document.getElementById("dis").disabled = true;
+    }
+
+    function ableFunction(){
+        document.getElementById("dis").disabled = false;
+    }
+    
+    var clicked = false
+    var myFunction = () => {
+        clicked = !clicked
+
+        if(clicked) {
+        document.getElementById('houseP').value = document.getElementById('house').value
+        document.getElementById('streetP').value = document.getElementById('street').value
+        document.getElementById('street1P').value = document.getElementById('street1').value
+        document.getElementById('landP').value = document.getElementById('land').value
+        document.getElementById('cityP').value = document.getElementById('city').value
+        document.getElementById('postP').value = document.getElementById('post').value
+        document.getElementById('policeP').value = document.getElementById('police').value
+        document.getElementById('districtP').value = document.getElementById('district').value
+        document.getElementById('stateP').value = document.getElementById('state').value
+        document.getElementById('countryP').value = document.getElementById('country').value
+        document.getElementById('pinP').value = document.getElementById('pin').value
+
+    } else {
+        document.getElementById('houseP').value = null
+        document.getElementById('streetP').value = null
+        document.getElementById('street1P').value = null
+        document.getElementById('landP').value = null
+        document.getElementById('cityP').value = null
+        document.getElementById('postP').value = null
+        document.getElementById('policeP').value = null
+        document.getElementById('districtP').value = null
+        document.getElementById('stateP').value = null
+        document.getElementById('countryP').value = null
+        document.getElementById('pinP').value =null
+    }
+    }
+
+var  getAge = (dob) => {
+        var today = new Date();
+        var birthDate = new Date(dob);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
+var changeHandler = () => {
+    var dob = document.getElementById('dob').value
+    document.getElementById('age').value = getAge(dob)
+}
+    
+</script>
+</body>
+
+</html>

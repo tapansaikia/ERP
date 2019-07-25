@@ -1,0 +1,16 @@
+<div class="card card-body">
+        <div class="col-md-6 m-auto">
+                <div class="card card-body">
+<h3>Hello!</h3>
+<% include ./partials/messages %>
+<form action="/users/resetPassword" method="post">
+    <input readonly class="form-control" id="email" name='email' type="email" value="<%= email %>">
+    <label for='password'>Please enter your new password</label>
+    <input class="form-control" id="password" name='password' type="password">
+    <label for='cnfrmpassword'>Please enter your new password again</label>
+    <input class="form-control" id="cnfrmpassword" name='cnfrmpassword' type="password">
+    <button type="submit" class="btn btn-primary btn-block">Change Password</button>
+</form>
+</div>
+</div>
+</div>

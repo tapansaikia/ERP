@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'corbel', 'Times new roman', sans-serif;
+    font-size: 20px;
+}
+
+.jumbotron {
+    height: 15vh;
+    width: 100%;
+    background-color: #ff3c00;
+    border-radius: 0;
+    text-align: center;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.logo
+{
+    margin-top: -8vh;
+    margin-left: -8vh;
+}
+.upload
+{
+    float: right;
+}
+.form-check
+{
+    float: left;
+    margin-left: 5vh;
+}
+
+.head{
+    font-size: 1.7em;
+    font-family: 'Times New Roman', sans-serif;
+    margin-left: 25vh;
+    margin-top: -5vh;
+    line-height: 6vh;
+    text-align: left;
+    color: white;
+    font-weight: bold;
+}
+
+.subhead {
+    width: 130vh;
+    margin-top: 5vh;
+    padding: 10px;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    background-color: #ff3c00;
+    border-radius: 5px;
+}
+
+/* form {
+    margin-left: 10vh;
+} */
+.btn {
+    background-color: #ff3c00;
+    color: white;
+}
+
+.footer {
+    margin-top: 10vh;
+    height: 15vh;
+    background-color: #ff3c00;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+#lifCheck {
+    border: 2px solid black;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 53.85%;
+    left: 40%;
+}
+
+#lifCheck:hover {
+    cursor: pointer;
+    background-color: bisque;
+}
